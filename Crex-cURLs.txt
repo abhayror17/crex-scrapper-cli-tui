@@ -1,0 +1,197 @@
+﻿– plz use curl.exe and ipv4 -4 flag for running cURL – 
+
+
+cURL on crex.com for live matches
+
+curl ^"https://api.goscorer.com/api/v3/getLiveMatches^" ^
+  -H ^"accept: application/json, text/plain, */*^" ^
+  -H ^"accept-language: en-US,en;q=0.6^" ^
+  -H ^"authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImV4cGlyZXNJbiI6IjM2NWQifQ.eyJ0aW1lIjoxNjYwMDQ2NjIwMDAwfQ.bTEmMWlR7hLRUHxPPq6-1TP7cuuW7m6sZ9jcdbYzLRA^" ^
+  -H ^"cc: IN^" ^
+  -H ^"dnt: 1^" ^
+  -H ^"origin: https://crex.com^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://crex.com/^" ^
+  -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"147^\^", ^\^"Not.A/Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"147^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?1^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Android^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-gpc: 1^" ^
+  -H ^"user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Mobile Safari/537.36^"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cURL on crex.com/schedule for upcoming fixture
+
+
+curl ^"https://stats.crickapi.com/fixture/getFixture^" ^
+  -H ^"accept: application/json, text/plain, */*^" ^
+  -H ^"accept-language: en-US,en;q=0.6^" ^
+  -H ^"authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImV4cGlyZXNJbiI6IjM2NWQifQ.eyJ0aW1lIjoxNjYwMDQ2NjIwMDAwfQ.bTEmMWlR7hLRUHxPPq6-1TP7cuuW7m6sZ9jcdbYzLRA^" ^
+  -H ^"cc: IN^" ^
+  -H ^"content-type: application/json^" ^
+  -H ^"dnt: 1^" ^
+  -H ^"origin: https://crex.com^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://crex.com/^" ^
+  -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"147^\^", ^\^"Not.A/Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"147^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?1^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Android^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-gpc: 1^" ^
+  -H ^"user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Mobile Safari/537.36^" ^
+  --data-raw ^"^{^\^"tl^\^":^[0,0,0^],^\^"type^\^":^\^"0^\^",^\^"page^\^":0,^\^"wise^\^":^\^"1^\^",^\^"lang^\^":^\^"en^\^",^\^"formatType^\^":^\^"^\^"^}^"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Live Match score (have to call multiple time till match is over) - https://crex.com/cricket-live-score/dc-vs-rr-43rd-match-indian-premier-league-2026-match-updates-118O
+
+
+curl ^"https://api.goscorer.com/api/v3/getSV3?key=118O^" ^
+  -H ^"accept: application/json, text/plain, */*^" ^
+  -H ^"accept-language: en-US,en;q=0.6^" ^
+  -H ^"authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImV4cGlyZXNJbiI6IjM2NWQifQ.eyJ0aW1lIjoxNjYwMDQ2NjIwMDAwfQ.bTEmMWlR7hLRUHxPPq6-1TP7cuuW7m6sZ9jcdbYzLRA^" ^
+  -H ^"cc: IN^" ^
+  -H ^"dnt: 1^" ^
+  -H ^"if-none-match: W/4874e061a3cb7dfee898b12524e57192^" ^
+  -H ^"origin: https://crex.com^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://crex.com/^" ^
+  -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"147^\^", ^\^"Not.A/Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"147^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?1^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Android^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-gpc: 1^" ^
+  -H ^"user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Mobile Safari/537.36^"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Live match score- https://crex.com/cricket-live-score/hhk-vs-isu-eliminator-2nd-match-pakistan-super-league-2026-match-updates-10XU
+
+
+curl ^"https://api.goscorer.com/api/v3/getSV3?key=10XU^" ^
+  -H ^"accept: application/json, text/plain, */*^" ^
+  -H ^"accept-language: en-US,en;q=0.6^" ^
+  -H ^"authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImV4cGlyZXNJbiI6IjM2NWQifQ.eyJ0aW1lIjoxNjYwMDQ2NjIwMDAwfQ.bTEmMWlR7hLRUHxPPq6-1TP7cuuW7m6sZ9jcdbYzLRA^" ^
+  -H ^"cc: IN^" ^
+  -H ^"dnt: 1^" ^
+  -H ^"origin: https://crex.com^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://crex.com/^" ^
+  -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"147^\^", ^\^"Not.A/Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"147^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?1^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Android^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-gpc: 1^" ^
+  -H ^"user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Mobile Safari/537.36^"
