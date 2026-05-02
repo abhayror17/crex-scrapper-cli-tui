@@ -1,0 +1,83 @@
+# CREX Scraper Configuration
+# ===========================
+
+# API Endpoints
+endpoints:
+  base_url: "https://api.goscorer.com/api/v3"
+  fixtures_url: "https://stats.crickapi.com/fixture/getFixture"
+  details_page: "https://crex.com/cricket-live-score/{match_key}/match-details"
+  
+  live_matches: "/getLiveMatches"
+  match_info: "/getIV4"
+  live_score: "/getSV3"
+  scorecard: "/getSC4"
+
+# Request Headers (from browser cURL)
+headers:
+  sec-ch-ua-platform: "\"Windows\""
+  accept-language: "en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7"
+  origin: "https://crex.com"
+  sec-ch-ua: "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+  sec-ch-ua-mobile: "?0"
+  user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+  accept: "application/json, text/plain, */*"
+  sec-fetch-site: "cross-site"
+  sec-fetch-mode: "cors"
+  sec-fetch-dest: "empty"
+  referer: "https://crex.com/"
+  accept-encoding: "gzip, deflate, br"
+  priority: "u=1, i"
+  authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnbyBzY29yZXIiLCJpYXQiOjE3NDI0NjQ1MjksImV4cCI6MTc3NDAyMjEyOSwiYXVkIjoid3d3Lmdvc2NvcmVyLmNvbSIsInN1YiI6ImdvIHNjb3JlciIsImRhdGEiOnsic2NvcGUiOiJ1c2VycyJ9fQ.L8cMKgljQNG6T_wZ0DW5b4FJQZt7MxtiL1oMuqQ2U1I"
+
+# Polling Intervals (seconds)
+polling:
+  fixtures_interval: 60
+  live_score_interval: 10
+  match_start_buffer: 300  # 5 minutes before start
+
+# Concurrency
+concurrency:
+  max_concurrent_matches: 5
+  request_timeout: 30
+  max_retries: 3
+  retry_backoff_base: 2  # exponential backoff multiplier
+  retry_jitter: true       # randomize retry delays
+
+# HTTP Session
+http:
+  connection_pool_size: 20
+  keepalive_timeout: 30
+  enable_etag: true
+  enable_gzip: true
+  tcp_connector_limit: 50
+
+# Storage
+storage:
+  engine: "sqlite"  # sqlite | json
+  db_path: "crex_data.db"
+  json_fallback: true      # also save JSON for backward compat
+  data_root: "data"
+
+# Caching
+cache:
+  enable_etag: true
+  static_data_ttl: 3600    # cache match info, squads for 1 hour
+  live_data_ttl: 10         # cache live scores for 10 seconds
+
+# Logging
+logging:
+  level: "INFO"
+  format: "json"  # json | text
+  log_file: "crex_scraper.log"
+  db_log: true    # also log to SQLite
+
+# Export
+export:
+  csv: true
+  output_dir: "exports"
+
+# Server
+server:
+  host: "0.0.0.0"
+  port: 5000
+  debug: false
