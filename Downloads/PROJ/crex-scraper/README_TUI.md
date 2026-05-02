@@ -49,31 +49,45 @@ A beautiful, interactive terminal UI for exploring live cricket scores and match
 
 ## Installation
 
-1. **Prerequisites**
-   - Windows 10/11 (Linux/macOS may work with adjustments)
-   - Python 3.8+
-   - `curl.exe` (included in Windows)
+### Option 1: Standalone Bundle (Recommended)
 
-2. **Clone & Setup**
-   ```bash
-   git clone https://github.com/abhayror17/crex-scrapper-cli-tui.git
-   cd crex-scraper
-   pip install -r requirements.txt
-   ```
+The `tui_bundle/` folder is a self-contained distribution — just install dependencies and run:
 
-3. **Create Data Directories** (optional)
-   ```bash
-   mkdir data
-   ```
+**Windows:**
+```bash
+cd tui_bundle
+pip install -r requirements.txt
+python tui.py
+# or double-click run_tui.bat
+```
 
-## Usage
+**macOS / Linux:**
+```bash
+cd tui_bundle
+pip install -r requirements.txt
+./run_tui.sh
+# or python3 tui.py
+```
+
+No additional setup required — the bundle includes its own copy of `crex_scraper` and config files.
+
+### Option 2: Development Mode
+
+If you want to run the root-level `tui.py` against the main package:
 
 ```bash
-# Run the TUI
+# Clone & setup the main project
+git clone https://github.com/abhayror17/crex-scrapper-cli-tui.git
+cd crex-scraper
+pip install -r requirements.txt
+
+# Run TUI from project root
 python tui.py
 ```
 
-Once inside, use arrow keys to navigate the match list. Press Enter to open a match menu:
+## Usage
+
+Once inside the TUI, use arrow keys to navigate the match list. Press Enter to open a match menu:
 
 - **Scorecard** – Full innings breakdown
 - **Live Score** – Current run rate, partnership, recent balls
@@ -103,7 +117,14 @@ This TUI is designed to work hand-in-hand with the `crex_scraper` library:
 
 ```
 crex-scraper/
-├── tui.py               # ← main TUI application
+├── tui_bundle/          # ← Standalone TUI distribution (recommended)
+│   ├── tui.py
+│   ├── run_tui.bat / run_tui.sh
+│   ├── requirements.txt
+│   ├── config.yaml
+│   ├── crex_scraper/    # embedded package
+│   └── data/            # team/player maps
+├── tui.py               # Development version (uses main package)
 ├── crex_scraper/        # core scraper library
 │   ├── client.py
 │   ├── scorecard.py
